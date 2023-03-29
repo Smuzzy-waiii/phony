@@ -1,14 +1,14 @@
 # Receiver, Speaker
 
 import sounddevice as sd
-from UDPServerHelper import UDPServerHelper
+from UDPClientHelper import UDPHelper
 import numpy as np
 
 duration = 15.5  # seconds
 block_size = 2048
 sample_rate = 44100  # Sample rate in Hz
 
-udp_service = UDPServerHelper(15000)
+udp_service = UDPHelper(15000)
 
 def callback(indata, outdata, frames, time, status):
     global printed

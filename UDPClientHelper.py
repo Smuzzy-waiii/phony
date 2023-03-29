@@ -2,15 +2,18 @@ from socket import *
 
 
 class UDPHelper:
-	def __init__(self, serverName, serverPort):
+	def __init__(self, serverName, serverPort, clientPort):
 		self.serverName = serverName 
 		self.serverPort = serverPort
-		self.clientSocket = socket(AF_INET, SOCK_DGRAM) 
+		self.socket = socket(AF_INET, SOCK_DGRAM) 
+		self.socket.bind(('', port))
 
 	def sendPacket(self, message):
-		self.clientSocket.sendto(message, (self.serverName, self.serverPort)) 
+		self.socket.sendto(message, (self.serverName, self.serverPort)) 
 
-# modifiedMessage, serverAddress = clientSocket.recvfrom(2048) 
-# print(modifiedMessage.decode()) 
+	def recv(self, size):
+		message, clientAddress = self.socket.recvfrom(size) 
+		return message, clientAddress
+
 	def __del__(self):
-		self.clientSocket.close()
+		self.socket.close()
