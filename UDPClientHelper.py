@@ -6,7 +6,7 @@ class UDPHelper:
 		self.serverName = serverName 
 		self.serverPort = serverPort
 		self.socket = socket(AF_INET, SOCK_DGRAM) 
-		self.socket.bind(('', port))
+		self.socket.bind(('', clientPort))
 
 	def sendPacket(self, message):
 		self.socket.sendto(message, (self.serverName, self.serverPort)) 
