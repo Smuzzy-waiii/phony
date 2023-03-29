@@ -5,8 +5,8 @@ from UDPServerHelper import UDPServerHelper
 import numpy as np
 
 duration = 15.5  # seconds
-block_size = 2048
-sample_rate = 44100  # Sample rate in Hz
+block_size = 512
+sample_rate = 48000  # Sample rate in Hz
 
 udp_service = UDPServerHelper(15000)
 

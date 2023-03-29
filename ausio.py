@@ -3,11 +3,11 @@
 import sounddevice as sd
 from UDPClientHelper import UDPHelper
 
-duration = 15.5  # seconds
-block_size = 2048
+duration = 60  # seconds
+block_size = 512
 sample_rate = 44100  # Sample rate in Hz
 
-udp_service = UDPHelper("localhost", 15000)
+udp_service = UDPHelper("192.168.249.74", 15000)
 
 def callback(indata, outdata, frames, time, status):
     if status:
